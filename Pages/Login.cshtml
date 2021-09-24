@@ -1,0 +1,35 @@
+﻿@page
+@model Presenter.Pages.LoginModel
+
+@{
+	ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="User.username" class="control-label">Username</label>
+				<input asp-for="User.username" class="form-control" />
+				<span asp-validation-for="User.username" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="User.password" class="control-label">Password</label>
+				<input asp-for="User.password" class="form-control" />
+				<span asp-validation-for="User.password" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

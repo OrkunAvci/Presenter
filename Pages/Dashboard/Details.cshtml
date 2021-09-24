@@ -1,0 +1,64 @@
+﻿@page
+@model Presenter.Pages.ImageFunctions.DetailsModel
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+	<h4>Images</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			Description
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Images.description)
+		</dd>
+		<dt class="col-sm-2">
+			Time Frame
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Images.start) - @Html.DisplayFor(model => model.Images.finish)
+		</dd>
+		<dt class="col-sm-2">
+			Screen
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Images.screen_no)
+		</dd>
+		<dt class="col-sm-2">
+			Link
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Images.link)
+		</dd>
+		<dt class="col-sm-2">
+			Is Video
+		</dt>
+		@if (Model.Images.is_video)
+		{
+			<dd class="col-sm-10">
+				True
+			</dd >
+		}
+		else
+		{
+			<dd class="col-sm-10">
+				False
+			</dd >
+		}
+		<dt class="col-sm-2">
+			Image
+		</dt>
+		<dd class="col-sm-10">
+			<img src="@Html.DisplayFor(model => model.Images.link)" alt="Image Preview" width="720" />
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-page="./Edit" asp-route-id="@Model.Images.ID">Edit</a> |
+	<a asp-page="./Index">Back to List</a>
+</div>

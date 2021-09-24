@@ -1,0 +1,28 @@
+﻿@page "{id}"
+@model Presenter.Pages.DisplayModel
+
+@{
+	ViewData["Title"] = "Display";
+	
+	//	This page is expected to run in fullscreen mode.
+	Layout = null;
+	
+	//	Pull properties from DisplayController.
+	var ScreenIntermediate = Html.Raw(Json.Serialize(Model.Screen));
+	var SessionIntermediate = Html.Raw(Json.Serialize(Model.Session));
+	var UpdateTimeIntermediate = Html.Raw(Json.Serialize(Model.UpdateTime));
+}
+
+<script>
+	//	Assign pulled properties so they are accessible in JS.
+	var screen = @ScreenIntermediate;
+	var session = @SessionIntermediate;
+	var update_time = @UpdateTimeIntermediate;
+</script>
+
+<link rel="stylesheet" href="~/css/site.css">
+
+<img id="Image" src="" class="Hidden" />
+<iframe id="Video" src="" class="Hidden"></iframe>
+
+<script type="module" src="~/js/Display.js"></script>

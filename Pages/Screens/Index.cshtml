@@ -1,0 +1,57 @@
+﻿@page
+@model Presenter.Pages.Screens.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Description
+			</th>
+			<th>
+				Location
+			</th>
+			<th>
+				Refresh Rate
+			</th>
+			<th>
+				Options
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Screen)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.location)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.refresh)
+				</td>
+				<td>
+					@{ 
+						if (User.Identity.IsAuthenticated)
+						{
+							<a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> <span>|</span>
+							<a asp-page="./Details" asp-route-id="@item.ID">Details</a> <span>|</span>
+							<a asp-page="./Delete" asp-route-id="@item.ID">Delete</a> <span>|</span>
+						}
+					}
+					<a asp-page="../Display" asp-route-id="@item.ID">Watch</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@page
+@model Presenter.Pages.ImageFunctions.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+	<a asp-page="Create">Create New</a>
+</p>
+<table class="table" style="table-layout:fixed;">
+	<thead>
+		<tr class="d-flex">
+			<th class="col-2">
+				Description
+			</th>
+			<th class="col-2">
+				Start
+			</th>
+			<th class="col-2">
+				Finish
+			</th>
+			<th class="col-4">
+				Link
+			</th>
+			<th class="col-1">
+				Screen
+			</th>
+			<th class="col-2">
+				Options
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Images)
+		{
+			<tr class="d-flex">
+				<td class="col-2">
+					@Html.DisplayFor(modelItem => item.description)
+				</td>
+				<td class="col-2">
+					@Html.DisplayFor(modelItem => item.start)
+				</td>
+				<td class="col-2">
+					@Html.DisplayFor(modelItem => item.finish)
+				</td>
+				<td class="col-4" style="word-wrap:break-word;">
+					@Html.DisplayFor(modelItem => item.link)
+				</td>
+				<td class="col-1">
+					@Html.DisplayFor(modelItem => item.screen_no)
+				</td>
+				<td class="col-3">
+					<a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+					<a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+					<a asp-page="./Delete" asp-route-id="@item.ID">Delete</a> |
+					<a asp-page="../Display" asp-route-id="@item.screen_no">Watch</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

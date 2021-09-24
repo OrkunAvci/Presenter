@@ -1,0 +1,45 @@
+﻿@page
+@model Presenter.Pages.Screens.EditModel
+
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Screen</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Screen.ID" />
+			<div class="form-group">
+				<label asp-for="Screen.description" class="control-label">Description</label>
+				<input asp-for="Screen.description" class="form-control" />
+				<span asp-validation-for="Screen.description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Screen.location" class="control-label">Location</label>
+				<input asp-for="Screen.location" class="form-control" />
+				<span asp-validation-for="Screen.location" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Screen.refresh" class="control-label">Refresh Rate</label>
+				<input asp-for="Screen.refresh" class="form-control" />
+				<span asp-validation-for="Screen.refresh" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

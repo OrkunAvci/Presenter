@@ -54,7 +54,7 @@
 
 ## NuGet Packages
 
-![image-20210924094441380](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20210924094441380.png)
+Image link is broken atm, sorry.
 
 ---
 

@@ -108,6 +108,7 @@ public class User
 	{
 		public int ID { get; set; }
 		public string username { get; set; }
+		
     	//	Non-hashed passwords are being used here.
 		public string password { get; set; }
 	}
@@ -119,10 +120,13 @@ public class User
 public class Screen
 	{
 		public int ID { get; set; }
+		
     	//	A short description.
 		public string description { get; set; }
+		
     	//	Where this screen is located.
 		public string location { get; set; }
+		
     	//	Refresh rate in seconds.
 		public uint refresh { get; set; }
 	}
@@ -134,16 +138,22 @@ public class Screen
 public class Images
 	{
 		public int ID { get; set; }
+		
     	//	A short description.
 		public string description { get; set; }
+		
     	//	When to start displaying this image.
 		public DateTime start { get; set; }
+		
     	//	When to stop displaying this image.
 		public DateTime finish { get; set; }
+		
     	//	Link to source.
 		public string link { get; set; }
+		
     	//	Which screen to display it on.
 		public int screen_no { get; set; }
+		
     	//	Is it a video or an image?
 		public bool is_video { get; set; }
 	}
@@ -176,7 +186,7 @@ Example shown through **UserContext**:
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			// Map entities to tables.
+			// 	Map entities to tables.
 			modelBuilder.Entity<User>().ToTable("user");
 
 			//	Configure primary keys.

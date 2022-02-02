@@ -1,3 +1,31 @@
+# Introduction
+
+### Why is this here?
+
+This is here to spark creativity and give inspiration to new developers.
+
+### What is this document?
+
+This is the documentation of how I implemented the project. You should have your own code, design, implementation etc.
+
+### Who is it for?
+
+This is for new developers.
+
+### How to use it?
+
+There are three main ways you can go about this:
+
+- Read the requirements and go wild.
+- Read this documentation and implement it by yourself.
+- Read this documentation and the [code](https://github.com/OrkunAvci/Presenter), and then improve on it.
+
+You can freely jump between these approaches. Documentation is written with as little code snippets as possible for this reason. And you can use whatever tech stack you want.
+
+---
+
+---
+
 # Presenter
 
 ## Requirements
@@ -31,6 +59,8 @@
 - Screens should be able to display both images and videos
 - Presentation should start over at the end
 
+This is intended to be a Web App.
+
 ---
 
 ## Tech Stack
@@ -54,7 +84,18 @@
 
 ## NuGet Packages
 
-Image link is broken atm, sorry.
+I would advise building this list up as you go. For example, you won’t need MySQL stuff if your DB is Oracle.
+
+- Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation (5.0.9)
+- Microsoft.AspNetCore.Session (2.2.0)
+- Microsoft.EntityFrameworkCore (5.0.9)
+- Microsoft.EntityFrameworkCore. Relational (5.0.9)
+- Microsoft.EntityFrameworkCore.Tools (5.0.9)
+- Microsoft.Extensions.Options.ConfigurationExtensions (5.0.0)
+- Microsoft.VisualStudio.Web.Codegeneration. Design (5.0.2)
+- MySql.Data (8.0.26)
+- Pomelo.EntityFrameworkCore.MySql (5.0.1)
+
 
 ---
 
@@ -108,7 +149,7 @@ public class Images
 	}
 ```
 
-Note: Images.screen_no is a foreign key to Screen.ID
+Note: **Images**.screen_no is a foreign key to **Screen**.ID
 
 ---
 
@@ -130,7 +171,7 @@ And their respective database connection classes:
 
 All context classes have the same structure to them. First they map to tables. Second they define keys. And lastly they link columns with class properties.
 
-Example shown through UserContext:
+Example shown through **UserContext**:
 
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -148,7 +189,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 		}
 ```
 
-Note: CLL and CLLNode are no longer used. They stand for Circular Linked List and Circular Linked List Node respectively. This behavior has been moved to JavaScript. Refer to Display.js.
+Note: **CLL **and **CLLNode **are no longer used. They stand for Circular Linked List and Circular Linked List Node respectively. This behavior has been moved to JavaScript. Refer to Display.js.
 
 ----
 
@@ -239,3 +280,9 @@ Makes sure index to session elements is in bound. Pulls a copy the current eleme
 #### handle_img(link) and handle_vid(link)
 
 Alternates the classes of tags between “Hidden” and “Displayed”. Sets up the src property of tag to the link but does not clean up the src of other. Classes are defined in default **site.css**.
+
+---
+
+## Final Thoughts
+
+I didn’t have any ASP .NET or ASP .NET Core experience before starting this project. I had some C# knowledge but it was in game development  far from web development. So this was an absolute beginner project for me. I learned a lot from it. And hopefully, you will too.
